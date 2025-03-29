@@ -9,7 +9,7 @@ API REST de animales – Práctica 4 PAT
 | GET    | `/api/animales`            | –                                                                             |  mostrar todos los animales con sus caracteristicas ya que en la peticion no especifica un animal en concreto              | 200 OK             |
 | GET    | `/api/animales/list_nom`   | –                                                                             | mostrar todos los **NOMBRES** de los animales ya que en la peticion no especifican un animal en concreto        | 200 OK             |
 | GET    | `/api/contadores/{nombre}` | –                                                                             | mostrar todo lo que define a un animal en concreto porque en la peticion especifica que animal ver           | 200 OK, 404 Not Found |
-| PUT   | `/api/animales/{nombre}/ecosistema/{ecosistema}`            | `{ "nombre": "León", "ecosistema": "Sabana", "imagen": "nueva_url" }`  | actualizar el ecosistema a partir del nombre que el usuario ponga a actualizar | 200 OK, 404 Not Found |definidas en el model y lo guarda       
+| PUT   | `/api/animales/{nombre}/ecosistema/{ecosistema}`            | `{ "nombre": "León", "ecosistema": "Jungla", "imagen": "url_de_la_imagen" }`  | actualizar el ecosistema a partir del nombre que el usuario ponga a actualizar | 200 OK, 404 Not Found |definidas en el model y lo guarda       
 | DELETE   | `/api/animales/{nombre}`            | - |  eliminar, en este caso del diccionario animales, un animal concreto, usando el nombre de este | 200 OK, 404 Not Found |
 
 

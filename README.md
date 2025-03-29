@@ -1,6 +1,19 @@
 # p4
-API REST de animales - Práctica 4 PAT
-    
+API REST de animales – Práctica 4 PAT
+
+## Endpoints
+
+| Método | Ruta                        | Cuerpo (JSON)                                                                 | Descripción                                                         | Posibles respuestas |
+|--------|-----------------------------|-------------------------------------------------------------------------------|----------------------------------------------------------------------|---------------------|
+| POST   | `/api/animales`            | `{ "nombre": "León", "ecosistema": "Sabana", "imagen": "url_de_la_imagen" }` | crear animales nuevos segun las peticiones y que emplee las clases y funciones definidas en el model y lo guarde                                     | 200 OK, 400 Bad Request |
+| GET    | `/api/animales`            | –                                                                             |  mostrar todos los animales con sus caracteristicas ya que en la peticion no especifica un animal en concreto              | 200 OK             |
+| GET    | `/api/animales/list_nom`   | –                                                                             | mostrar todos los **NOMBRES** de los animales ya que en la peticion no especifican un animal en concreto        | 200 OK             |
+| GET    | `/api/contadores/{nombre}` | –                                                                             | mostrar todo lo que define a un animal en concreto porque en la peticion especifica que animal ver           | 200 OK, 404 Not Found |
+| PUT   | `/api/animales/{nombre}/ecosistema/{ecosistema}`            | `{ "nombre": "León", "ecosistema": "Sabana", "imagen": "nueva_url" }`  | actualizar el ecosistema a partir del nombre que el usuario ponga a actualizar | 200 OK, 404 Not Found |definidas en el model y lo guarda       
+| DELETE   | `/api/animales/{nombre}`            | - |  eliminar, en este caso del diccionario animales, un animal concreto, usando el nombre de este | 200 OK, 404 Not Found |
+
+
+```java
 @PostMapping("/api/animales") //hago un endpoint que sea para crear animales nuevos segun las peticiones y que emplee las clases y funciones definidas en el model
     public Animal crear_animal(@RequestBody Animal nuevo_animal) //para que con el json que me den en la peticion se me cree un objeto animal
     {
@@ -47,10 +60,10 @@ API REST de animales - Práctica 4 PAT
         return animalActualizado;
     }
 
-@DeleteMapping("/api/animales/{nombre}")
+@DeleteMapping("/api/animales/{nombre}") //para eliminar, en este caso del diccionario animales, un animal concreto, usando el nombre de este
     public Map<String,Animal> eliminar(@PathVariable String nombre)
     {
         animales.remove(nombre.toLowerCase()); //quiero que me devuelva el diccionario por eso elimino el animal usando su clave
         return animales;
     }
-
+```
